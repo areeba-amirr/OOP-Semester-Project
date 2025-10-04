@@ -1,39 +1,43 @@
-# 📝 Notepad – OOP Semester 2 Project (GUI-Based)
+# 🌟 Milestone – Future-Focused Career Advisory Platform
 
-A **Graphical User Interface (GUI) Notepad application** developed in **C++** as part of my Semester-2 Object-Oriented Programming project.  
-This project demonstrates the use of **OOP concepts** like **classes, encapsulation, inheritance, polymorphism**, along with **event-driven programming** for GUI applications.
-
----
-
-## 🚀 Features
-- 🖊️ **Create and Edit Notes:** Write and modify text easily  
-- 📂 **Open Files:** Load existing text documents  
-- 💾 **Save Files:** Save work to your local storage  
-- 🔎 **Find & Replace:** Search for specific text in notes  
-- ✂️ **Cut, Copy, Paste:** Basic text editing operations  
-- 🎨 **Change Fonts & Colors:** Customize your writing experience  
-- 📜 **Clean and User-Friendly GUI:** Intuitive interface for beginners  
-- 🔐 **OOP Design:** Classes for handling file operations, editor, and GUI events  
+Milestone is a **C++ (OOP-based)** career counseling application that helps students discover their interests, evaluate their skills, and receive **personalized career roadmaps**.  
+It combines **quiz-based assessment**, **file-driven roadmap suggestions**, and **AI-powered insights** about current trends in each career path.
 
 ---
 
-## 💻 Tech Stack
-- **Language:** C++  
-- **Paradigm:** Object-Oriented Programming (OOP)  
-- **Concepts Used:**  
-  - Encapsulation  
-  - Inheritance  
-  - Polymorphism
-  - Abstraction
-  - File Handling
+## ✨ Features
+- 🔑 **User Authentication**
+  - Student login & registration  
+  - Password protection with masking  
+
+- 📝 **Career Quiz**
+  - Collects basic details: name, education level, interests, skill level  
+  - Suggests relevant career tracks based on quiz responses  
+
+- 📚 **Roadmap Generator**
+  - Pre-stored roadmaps for various fields (e.g., Web Development, Data Science, Cybersecurity)  
+  - Suggests **next steps** based on current skills  
+  - Example: If user knows HTML → suggests CSS → JS → React → Next.js  
+
+- 📂 **File Handling**
+  - Stores roadmaps and quiz data in local files  
+  - Ensures data persistence between sessions  
+
+- 🤖 **AI-Powered Insights**
+  - Provides up-to-date information about the **demand & future scope** of the chosen field  
+
+- 🎨 **(Optional) GUI**
+  - Future integration with Qt for a user-friendly interface  
 
 ---
 
-## 📚 Learning Objectives
-This project helped me to:
-- Implement **event-driven GUI programming** in C++  
-- Apply **OOP principles** to manage application components  
-- Work with **file handling** for saving and opening notes  
-- Understand how GUI-based applications are structured in C++
+## 🏗️ Tech Stack
+- **Language:** C++ (Object-Oriented Programming)  
+- **Concepts Used:**
+  - Classes & Objects  
+  - Inheritance, Polymorphism, Encapsulation  
+  - File Handling  
+  - Basic AI integration (via stored knowledge & future APIs)  
+- **Platform:** Console-based (initial version), planned GUI with Qt  
 
 ---
