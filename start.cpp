@@ -1,19 +1,13 @@
 #include<iostream>
 #include<fstream>
 using namespace std;
-int main(){
-		char choice;
-	cout<<" Welcome To MILESTONE - Your Career Advisery Platform "<<endl;
-	do{
-		cout<<"Welcome  To  Main Menu please choose an option below"<<endl;
-		cout<<"a. New User? Create an Account (Sign up)"<<endl<<" b. My Portal (Log in)"<<endl<<"c. Exit the Application"<<endl;
-		cin>>choice;
-		switch(choice){
-			case 'a' : {
-				string name,password,qualification,field,email;
+class Milestone{
+	public :
+	void signUp(){
+	string name,password,qualification,field,email;
 				int age;
 					cin.ignore();
-				cout<<"Enter Your User Name :";
+				cout<<"Enter Your User Name :";a=
 				getline(cin,name);
 				cout<<"Enter Your Password :";
 				cin>>password;
@@ -27,7 +21,7 @@ int main(){
 				getline(cin,field);
 				cout<<"Enter Your age :";
 				cin>>age;
-				ofstream file("info.txt");
+				ofstream file("info.txt" ,ios::app);
 				file<<name<<endl;
 				file<<password<<endl;
 				file<<qualification<<endl;
@@ -35,7 +29,22 @@ int main(){
 				file<<field<<endl;
 				file<<age<<endl;
 				file.close();
-				cout<<"Registration Successfully!!!"<<endl;
+				cout<<"Registration Successfully!!!"<<endl;	
+	}
+	void Login(){
+	}	
+};
+
+int main(){
+		char choice;
+	cout<<" Welcome To MILESTONE - Your Career Advisery Platform "<<endl;
+	do{
+		cout<<"Welcome  To  Main Menu please choose an option below"<<endl;
+		cout<<"a. New User? Create an Account (Sign up)"<<endl<<" b. My Portal (Log in)"<<endl<<"c. Exit the Application"<<endl;
+		cin>>choice;
+		switch(choice){
+			case 'a' : {
+				m1.signUp();
 				break;
 			}
 		case 'b' : {
@@ -107,11 +116,8 @@ int main(){
             loginAttempts++;
         }
     }
-//    	cout<<"Try Again Later!!"<<endl;
-////			choice == 'c';
 			break;
 			}
-
 			case 'c' :{
 				cout<<"Exiting the application...."<<endl;
 				break;	}
