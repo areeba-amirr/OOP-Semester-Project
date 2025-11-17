@@ -3,11 +3,14 @@
 using namespace std;
 class Milestone{
 	public :
+		Milestone(){
+			cout<<" Welcome To MILESTONE - Your Career Advisery Platform "<<endl;
+		}
 	void signUp(){
 	string name,password,qualification,field,email;
 				int age;
 					cin.ignore();
-				cout<<"Enter Your User Name :";a=
+				cout<<"Enter Your User Name :";
 				getline(cin,name);
 				cout<<"Enter Your Password :";
 				cin>>password;
@@ -32,12 +35,14 @@ class Milestone{
 				cout<<"Registration Successfully!!!"<<endl;	
 	}
 	void Login(){
-	}	
+	}
+	~Milestone();	
 };
 
 int main(){
+	Milestone m1;
 		char choice;
-	cout<<" Welcome To MILESTONE - Your Career Advisery Platform "<<endl;
+//	cout<<" Welcome To MILESTONE - Your Career Advisery Platform "<<endl;
 	do{
 		cout<<"Welcome  To  Main Menu please choose an option below"<<endl;
 		cout<<"a. New User? Create an Account (Sign up)"<<endl<<" b. My Portal (Log in)"<<endl<<"c. Exit the Application"<<endl;
