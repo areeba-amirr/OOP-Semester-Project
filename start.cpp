@@ -6,39 +6,64 @@ class Milestone{
 		Milestone(){
 			cout<<" Welcome To MILESTONE - Your Career Advisery Platform "<<endl;
 		}
-	void signUp(){
-	string name,password,qualification,field,email;
+string name,password,qualification,field,email;
 				int age;
-					cin.ignore();
-				cout<<"Enter Your User Name :";
-				getline(cin,name);
-				cout<<"Enter Your Password :";
-				cin>>password;
-				cin.ignore();
-				cout<<"Enter Your Highest Qualifiaction :";
-				getline(cin,qualification);
-				cout<<"Enter Your Email :";
-				cin>>email;
-				cin.ignore();
-				cout<<"Enter Your Field of Interest :";
-				getline(cin,field);
-				cout<<"Enter Your age :";
-				cin>>age;
-				ofstream file("info.txt" ,ios::app);
-				file<<name<<endl;
-				file<<password<<endl;
-				file<<qualification<<endl;
-				file<<email<<endl;
-				file<<field<<endl;
-				file<<age<<endl;
-				file.close();
-				cout<<"Registration Successfully!!!"<<endl;	
+	void saveUser(const Milestone &m1){
+		ofstream file("info.txt",ios::app);
+		file<<m1.name<<endl;
+		file<<m1.password<<endl;
+		file<<m1.age<<endl;
+		file<<m1.email<<endl;
+		file<<m1.qualification<<endl;
+		file<<m1.field<<endl;
+		file.close();
 	}
-	void Login(){
+	bool Login(){
 	}
-	~Milestone();	
+	bool checkgmail(string email){
+    string gmail="@gmail.com";
+    
+    int eLength = email.length();
+    int gLength = gmail.length();
+    
+    if(eLength < gLength){
+        cout<<"Email too short and something is missing"<<endl;
+        return false;
+    }
+    
+    for(int i=0; i<gLength; i++){
+        if(email[eLength-gLength+i] != gmail[i]){
+            cout<<"Error occurred. Email should end with @gmail.com\n";
+            return false;
+        }
+    }
+    return true;
+}	
 };
-
+class Roadmap{
+	public :
+		void loadApp(){
+			string line;
+		ifstream file("Roadmap.txt");
+		while(getline(file,line)){
+			
+			cout<<line<<endl;
+//			cout<<"File load successfully";
+		}
+		file.close();
+		}
+		void loadWeb(){
+			string line;
+		ifstream file("RoadmapWeb.txt");
+		while(getline(file,line)){
+			
+			cout<<line<<endl;
+//			cout<<"File load successfully";
+		}
+		file.close();
+		}
+		
+};
 int main(){
 	Milestone m1;
 		char choice;
@@ -49,7 +74,28 @@ int main(){
 		cin>>choice;
 		switch(choice){
 			case 'a' : {
-				m1.signUp();
+					cout<<"Enter your Name : ";
+				cin.ignore();
+	getline(cin,m1.name);
+	cout<<"Enter your Password : ";
+	getline(cin,m1.password);
+
+        bool validEmail = false;
+        while(!validEmail){
+            cout<<"Enter Your Email :";
+            cin>>m1.email;
+
+            validEmail = m1.checkgmail(m1.email);   //Email Verification
+        }
+	cout<<"Enter your age ";
+	cin>>m1.age;
+	
+	cin.ignore();
+	cout<<"Enter your Qualification : ";
+	getline(cin,m1.qualification);
+	cout<<"Enter your field ";
+	getline(cin,m1.field);
+	m1.saveUser(m1);
 				break;
 			}
 		case 'b' : {
@@ -64,7 +110,6 @@ int main(){
 				cin>>password;
 				ifstream file("info.txt");
 				 string fileUser, filePass;
-//				int i= 0;
 				while (file >> fileUser >> filePass) {
             if (fileUser == uName && filePass == password) {
                 found = true;
@@ -72,6 +117,7 @@ int main(){
             }
         }
 
+       
         if (found) {
             cout << "Login Successful!" << endl;
             int choice;
