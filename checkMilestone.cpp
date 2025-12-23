@@ -309,7 +309,7 @@ public:
             char userAnswer = tolower(answer[0]);
             
             if (userAnswer == q.correctAnswer) {
-                cout << "? Correct!\n";
+                cout << "Correct!\n";
                 score++;
             } else {
                 cout << "? Wrong! Correct answer is: " << q.correctAnswer << "\n";
@@ -477,58 +477,119 @@ public:
 
     // Sahi choice milne ke baad switch case
     switch (choice) {
-        case 1: {
+
+case 1: {
+    while (true) {
+        try {
             string newName;
             cout << "Enter new name: ";
             getline(cin, newName);
+
+            if (newName.empty())
+                throw ValidationException("Name cannot be EMPTY!");
+
             setName(newName);
             cout << "Name updated successfully!\n";
             break;
         }
-        case 2: {
-            while (true) {
-                try {
-                    int newAge;
-                    cout << "Enter Age: ";
-                    cin >> newAge;
-                    if (cin.fail()) {
-                        cin.clear(); cin.ignore(1000, '\n');
-                        throw ValidationException("Age must be a NUMBER!");
-                    }
-                    if (newAge <= 0 || newAge > 120) throw ValidationException("Age must be (1-120)!");
-                    cin.ignore();
-                    setAge(newAge);
-                    cout << "Age updated successfully!\n";
-                    break;
-                } catch (ValidationException &e) { cout << "INPUT ERROR: " << e.what() << endl; }
+        catch (ValidationException &e) {
+            cout << "INPUT ERROR: " << e.what() << endl;
+        }
+    }
+    break;
+}
+
+case 2: {
+    while (true) {
+        try {
+            int newAge;
+            cout << "Enter Age: ";
+            cin >> newAge;
+
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                throw ValidationException("Age must be a NUMBER!");
             }
+
+            if (newAge <= 0 || newAge > 120)
+                throw ValidationException("Age must be (1-120)!");
+
+            cin.ignore();
+            setAge(newAge);
+            cout << "Age updated successfully!\n";
             break;
         }
-        case 3: {
+        catch (ValidationException &e) {
+            cout << "INPUT ERROR: " << e.what() << endl;
+        }
+    }
+    break;
+}
+
+case 3: {
+    while (true) {
+        try {
             string newEmail;
             cout << "Enter new email: ";
             getline(cin, newEmail);
+
+            if (newEmail.empty())
+                throw ValidationException("Email cannot be EMPTY!");
+
             setEmail(newEmail);
             cout << "Email updated successfully!\n";
             break;
         }
-        case 4: {
+        catch (ValidationException &e) {
+            cout << "INPUT ERROR: " << e.what() << endl;
+        }
+    }
+    break;
+}
+
+case 4: {
+    while (true) {
+        try {
             string newQualification;
             cout << "Enter new qualification: ";
             getline(cin, newQualification);
+
+            if (newQualification.empty())
+                throw ValidationException("Qualification cannot be EMPTY!");
+
             setQualification(newQualification);
             cout << "Qualification updated successfully!\n";
             break;
         }
-        case 5: {
+        catch (ValidationException &e) {
+            cout << "INPUT ERROR: " << e.what() << endl;
+        }
+    }
+    break;
+}
+
+case 5: {
+    while (true) {
+        try {
             string newField;
-            cout << "Enter new field (Web/App Development): ";
+            cout << "Enter new field: ";
             getline(cin, newField);
+
+            if (newField.empty())
+                throw ValidationException("Field cannot be EMPTY!");
+
             setField(newField);
             cout << "Field updated successfully!\n";
             break;
         }
+        catch (ValidationException &e) {
+            cout << "INPUT ERROR: " << e.what() << endl;
+        }
     }
+    break;
+}
+}
 
     // Save logic
     cout << "\nDo you want to save changes to file? (y/n): ";
